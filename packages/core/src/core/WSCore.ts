@@ -201,17 +201,16 @@ export class WSCore<CustomServerEvents extends Record<string, any> = {}>
       }
 
       // 尝试解析 JSON 数据
-      if (typeof data === 'string') {
+
+      // 使用自定义解析器
+      if (this._messageParser) {
+        data = this._messageParser(data)
+      } else if (typeof data === 'string') {
         try {
           data = JSON.parse(data)
         } catch {
           // 如果不是 JSON，保持原样
         }
-      }
-
-      // 使用自定义解析器
-      if (this._messageParser) {
-        data = this._messageParser(data)
       }
 
       // 分发消息到自定义事件监听器
@@ -344,8 +343,7 @@ export class WSCore<CustomServerEvents extends Record<string, any> = {}>
 
   private calculateReconnectDelay(): number {
     const { baseDelay, maxDelay, backoffFactor } = this._reconnectOptions
-    const delay =
-      baseDelay * Math.pow(backoffFactor, this._reconnectAttempts - 1)
+    const delay = baseDelay * Math.pow(backoffFactor, this._reconnectAttempts)
     return Math.min(delay, maxDelay)
   }
 

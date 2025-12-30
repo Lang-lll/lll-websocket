@@ -5,10 +5,10 @@
   "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/cjs/index.d.ts",
+  "types": "dist/esm/index.d.ts",
   "scripts": {
     "build": "lcomedy tsup",
-    "test": "lcomedy test"
+    "test": "lcomedy test -t unit"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,12 @@
   ],
   "author": "Lang-lll",
   "license": "MIT",
+  "devDependencies": {
+    "@l-comedy/core": "0.1.1",
+    "@types/jest": "^29.5.14",
+    "@types/node": "22",
+    "jest": "^29.7.0"
+  },
   "bugs": {
     "url": "https://github.com/Lang-lll/lll-websocket/issues"
   },
