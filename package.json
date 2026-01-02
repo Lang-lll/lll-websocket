@@ -1,12 +1,12 @@
 {
   "name": "lll-websocket-project",
   "version": "0.1.0",
-  "description": "Client websocket manager",
   "type": "module",
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lang-lll/lll-websocket.git"
+  "scripts": {
+    "build-core": "cd packages/core && pnpm i && pnpm build",
+    "publish-core": "npm -w lll-websocket publish",
+    "example:core": "cd examples/core && pnpm i && pnpm dev",
+    "build-example:core": "cd examples/core && pnpm i && pnpm build"
   },
   "keywords": [
     "websocket",
@@ -14,5 +14,9 @@
     "javascript"
   ],
   "author": "Lang-lll",
-  "license": "MIT"
+  "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ]
 }

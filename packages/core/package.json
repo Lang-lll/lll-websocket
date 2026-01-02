@@ -2,17 +2,22 @@
   "name": "lll-websocket",
   "version": "0.1.0",
   "description": "Client websocket manager",
-  "type": "module",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "main": "lib/cjs/index.js",
+  "types": "lib/cjs/index.d.ts",
+  "module": "lib/esm/index.js",
   "scripts": {
     "build": "lcomedy tsup",
     "test": "lcomedy test -t unit"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lang-lll/lll-websocket.git"
+    "url": "https://github.com/Lang-lll/lll-websocket"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "websocket",
@@ -22,7 +27,7 @@
   "author": "Lang-lll",
   "license": "MIT",
   "devDependencies": {
-    "@l-comedy/core": "0.1.1",
+    "@l-comedy/core": "0.1.2",
     "@types/jest": "^29.5.14",
     "@types/node": "22",
     "jest": "^29.7.0"
